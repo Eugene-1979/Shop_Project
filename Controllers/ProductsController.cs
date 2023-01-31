@@ -78,7 +78,7 @@ namespace Shop_Project.Controllers
         }
 
         // GET: Products/Edit/5
-        [Authorize(Roles=RoleNames.Moderator)]
+       [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _productRepository._context.Products == null)
@@ -99,7 +99,7 @@ namespace Shop_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Sale,CategoryId,About,Reviews")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CategoryId,Category,Sale,About,Reviews")] Product product)
         {
 
 
@@ -110,8 +110,11 @@ namespace Shop_Project.Controllers
             {
                 return NotFound();
             }
+            /*  product.Category=_productRepository._context.Categorys.FirstOrDefault(x => x.Id == product.CategoryId);*/
 
-            if (value.Item1)
+            ModelState.Remove(nameof(Category));
+
+            if (ModelState.IsValid)
             {
                 try
                 {

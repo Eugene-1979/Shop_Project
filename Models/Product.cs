@@ -10,28 +10,28 @@ namespace Shop_Project.Models
         public int Id { get; set; }
 
 
-        [Required(ErrorMessage = "Input Name")]
-        [StringLength(25, MinimumLength = 2, ErrorMessage = "incorrect length name")]
+       /* [Required(ErrorMessage = "Input Name")]
+        [StringLength(25, MinimumLength = 2, ErrorMessage = "incorrect length name")]*/
         public string Name { get; set; }
 
-        [Required]
-        [Range(ShopRepository._minSale, ShopRepository._maxSale, ErrorMessage = "Incorect Range 0-100_000")]
+      /*  [Required]
+        [Range(ShopRepository._minSale, ShopRepository._maxSale, ErrorMessage = "Incorect Range 0-100_000")]*/
         public int Sale { get; set; }
 
-  
-        public  Category Category{ get; set; }
-      /*  [Required]*/
+
+        public Category Category { get; set; }
+        /*  [Required]*/
         public int CategoryId { get; set; }
 
 
 
-        [Required(ErrorMessage = "Input about")]
-        [StringLength(150, MinimumLength = 0, ErrorMessage = "incorrect length name")]
+      /*  [Required(ErrorMessage = "Input about")]
+        [StringLength(150, MinimumLength = 0, ErrorMessage = "incorrect length name")]*/
         public string About { get; set; }
 
 
-        [StringLength(50, MinimumLength = 0, ErrorMessage = "incorrect length name")]
-        [Required(ErrorMessage = "Input Review")]
+      /*  [StringLength(50, MinimumLength = 0, ErrorMessage = "incorrect length name")]
+        [Required(ErrorMessage = "Input Review")]*/
         /*   [Remote("CheckEmptyString", "Products")]*/
         public string Reviews { get; set; }
 

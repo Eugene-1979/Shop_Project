@@ -5,7 +5,7 @@ using Shop_Project.Models;
 using Shop_Project.Repository;
 
 namespace Shop_Project.Db
-    {
+{
     public static class ShopRepository
         {
       public const int _minSale = 0;

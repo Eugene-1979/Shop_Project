@@ -6,7 +6,10 @@ namespace Shop_Project.Db
     {
     public class AppDbContent : DbContext
         {
+        public AppDbContent()
+            {
 
+            }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
             modelBuilder
@@ -45,12 +48,12 @@ namespace Shop_Project.Db
        
         }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categorys { get; set; }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Shop_Project.Models.Enrollment> Enrollment { get; set; } = default!;
+        public virtual DbSet<Product> Products { get; set; } 
+        public virtual DbSet<Category> Categorys { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Enrollment> Enrollment { get; set; } = default!;
    
 
         }

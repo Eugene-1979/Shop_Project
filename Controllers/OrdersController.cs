@@ -62,12 +62,16 @@ namespace Shop_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(/*[Bind("Id,EmployeeId,MyDate,CustomerId")]*/ IFormCollection tt)
+        public async Task<IActionResult> Create([Bind("Id,EmployeeId,MyDate,CustomerId")] Order order)
         {
+
+            ModelState.Remove(nameof(Customer));
+            ModelState.Remove(nameof(Employee));
+
             if (ModelState.IsValid)
             {
 
-                await _orderRepository.ModelAddAsync(null);
+                await _orderRepository.ModelAddAsync(order);
                 return RedirectToAction(nameof(Index));
             }
 /*            ViewData["CustomerId"] = new SelectList(_orderRepository._context.Customers, "Id", "Name", order.CustomerId);
